@@ -1,0 +1,149 @@
+Started GET "/" for ::1 at 2023-05-21 13:55:19 +0900
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/kengo/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kengo/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.9ms | Allocations: 633)
+Completed 200 OK in 8ms (Views: 3.4ms | ActiveRecord: 0.0ms | Allocations: 5336)
+
+
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateEmployees (20230521050026)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "employees" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "family_name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230521050026"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateProducts (20230521050034)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "products" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230521050034"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreatePictures (20230521050121)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "pictures" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "imageable_type" varchar, "imageable_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_pictures_on_imageable" ON "pictures" ("imageable_type", "imageable_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230521050121"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-05-21 05:06:08.083483"], ["updated_at", "2023-05-21 05:06:08.083483"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mEmployee Create (0.4ms)[0m  [1m[32mINSERT INTO "employees" ("first_name", "family_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "taro"], ["family_name", "rails"], ["created_at", "2023-05-21 05:07:28.391028"], ["updated_at", "2023-05-21 05:07:28.391028"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPicture Load (0.1ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE "pictures"."imageable_id" = ? AND "pictures"."imageable_type" = ?[0m  [["imageable_id", 1], ["imageable_type", "Employee"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPicture Create (0.3ms)[0m  [1m[32mINSERT INTO "pictures" ("title", "body", "imageable_type", "imageable_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "aaaa"], ["body", "aaaa's body"], ["imageable_type", "Employee"], ["imageable_id", 1], ["created_at", "2023-05-21 05:08:19.652127"], ["updated_at", "2023-05-21 05:08:19.652127"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mEmployee Destroy (0.4ms)[0m  [1m[31mDELETE FROM "employees" WHERE "employees"."id" = ?[0m  [["id", 1]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPicture Load (0.3ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures"[0m
+  [1m[36mPicture Load (0.3ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" ORDER BY "pictures"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPicture Destroy (0.3ms)[0m  [1m[31mDELETE FROM "pictures" WHERE "pictures"."id" = ?[0m  [["id", 1]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPicture Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "pictures"[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "products" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "Rails app"], ["created_at", "2023-05-21 05:16:06.722239"], ["updated_at", "2023-05-21 05:16:06.722239"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "Rails app"], ["created_at", "2023-05-21 05:16:06.724020"], ["updated_at", "2023-05-21 05:16:06.724020"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "Rails app"], ["created_at", "2023-05-21 05:16:06.724908"], ["updated_at", "2023-05-21 05:16:06.724908"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[36mProduct Destroy (1.5ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = ?[0m  [["id", 1]]
+  [1m[36mProduct Destroy (0.8ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = ?[0m  [["id", 2]]
+  [1m[36mProduct Destroy (0.6ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = ?[0m  [["id", 3]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mEmployee Create (0.2ms)[0m  [1m[32mINSERT INTO "employees" ("first_name", "family_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "taro"], ["family_name", "rails"], ["created_at", "2023-05-21 05:19:32.840650"], ["updated_at", "2023-05-21 05:19:32.840650"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPicture Create (0.2ms)[0m  [1m[32mINSERT INTO "pictures" ("title", "body", "imageable_type", "imageable_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "company"], ["body", "company's body"], ["imageable_type", "Employee"], ["imageable_id", 2], ["created_at", "2023-05-21 05:19:32.847956"], ["updated_at", "2023-05-21 05:19:32.847956"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPicture Create (0.2ms)[0m  [1m[32mINSERT INTO "pictures" ("title", "body", "imageable_type", "imageable_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "office_address"], ["body", "office_address's body"], ["imageable_type", "Employee"], ["imageable_id", 2], ["created_at", "2023-05-21 05:19:32.850024"], ["updated_at", "2023-05-21 05:19:32.850024"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "Rails app0"], ["created_at", "2023-05-21 05:19:32.852893"], ["updated_at", "2023-05-21 05:19:32.852893"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "Rails app1"], ["created_at", "2023-05-21 05:19:32.854068"], ["updated_at", "2023-05-21 05:19:32.854068"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "Rails app2"], ["created_at", "2023-05-21 05:19:32.855095"], ["updated_at", "2023-05-21 05:19:32.855095"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPicture Create (0.1ms)[0m  [1m[32mINSERT INTO "pictures" ("title", "body", "imageable_type", "imageable_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Rails app0"], ["body", "Rails app0's body"], ["imageable_type", "Product"], ["imageable_id", 4], ["created_at", "2023-05-21 05:19:32.856791"], ["updated_at", "2023-05-21 05:19:32.856791"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPicture Create (0.1ms)[0m  [1m[32mINSERT INTO "pictures" ("title", "body", "imageable_type", "imageable_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Rails app1"], ["body", "Rails app1's body"], ["imageable_type", "Product"], ["imageable_id", 5], ["created_at", "2023-05-21 05:19:32.858109"], ["updated_at", "2023-05-21 05:19:32.858109"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPicture Create (0.1ms)[0m  [1m[32mINSERT INTO "pictures" ("title", "body", "imageable_type", "imageable_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Rails app2"], ["body", "Rails app2's body"], ["imageable_type", "Product"], ["imageable_id", 6], ["created_at", "2023-05-21 05:19:32.859357"], ["updated_at", "2023-05-21 05:19:32.859357"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mProduct Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[36mEmployee Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "employees"[0m
+  [1m[36mPicture Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "pictures"[0m
+  [1m[36mPicture Load (0.1ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" ORDER BY "pictures"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPicture Load (0.3ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" ORDER BY "pictures"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 1], ["OFFSET", 2]]
+  [1m[36mPicture Load (0.2ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" ORDER BY "pictures"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 1], ["OFFSET", 2]]
+  [1m[36mProduct Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY "products"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY "products"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 1], ["OFFSET", 1]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY "products"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 1], ["OFFSET", 2]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY "products"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPicture Load (0.2ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE "pictures"."imageable_id" = ? AND "pictures"."imageable_type" = ?[0m  [["imageable_id", 4], ["imageable_type", "Product"]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY "products"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 1], ["OFFSET", 1]]
+  [1m[36mPicture Load (0.2ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE "pictures"."imageable_id" = ? AND "pictures"."imageable_type" = ?[0m  [["imageable_id", 5], ["imageable_type", "Product"]]
+Started GET "/erd" for ::1 at 2023-05-21 14:35:56 +0900
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/erd"):
+  
+Started GET "/erd" for ::1 at 2023-05-21 14:36:13 +0900
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Erd::ErdController#index as HTML
+  Rendering /Users/kengo/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/erd-0.8.1/app/views/erd/erd/erd.html.erb
+  Rendered collection of /Users/kengo/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/erd-0.8.1/app/views/erd/erd/_column.html.erb [1 times] (Duration: 0.3ms | Allocations: 356)
+  Rendered collection of /Users/kengo/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/erd-0.8.1/app/views/erd/erd/_column.html.erb [3 times] (Duration: 0.0ms | Allocations: 47)
+  Rendered collection of /Users/kengo/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/erd-0.8.1/app/views/erd/erd/_column.html.erb [2 times] (Duration: 0.0ms | Allocations: 35)
+  Rendered collection of /Users/kengo/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/erd-0.8.1/app/views/erd/erd/_model.html.erb [3 times] (Duration: 1.1ms | Allocations: 1244)
+  Rendered /Users/kengo/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/erd-0.8.1/app/views/erd/erd/erd.html.erb (Duration: 2.1ms | Allocations: 1944)
+  Rendering layout /Users/kengo/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/erd-0.8.1/app/views/layouts/erd/application.html.erb
+  Rendering /Users/kengo/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/erd-0.8.1/app/views/erd/erd/index.html.erb within layouts/erd/application
+  Rendered /Users/kengo/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/erd-0.8.1/app/views/erd/erd/index.html.erb within layouts/erd/application (Duration: 2.6ms | Allocations: 1776)
+  Rendered layout /Users/kengo/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/erd-0.8.1/app/views/layouts/erd/application.html.erb (Duration: 3.2ms | Allocations: 2775)
+Completed 200 OK in 672ms (Views: 3.8ms | ActiveRecord: 0.4ms | Allocations: 59917)
+
+
+Started GET "/erd/edit" for ::1 at 2023-05-21 14:41:07 +0900
+Processing by Erd::ErdController#edit as HTML
+  Rendering /Users/kengo/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/erd-0.8.1/app/views/erd/erd/erd.html.erb
+  Rendered collection of /Users/kengo/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/erd-0.8.1/app/views/erd/erd/_column.html.erb [1 times] (Duration: 0.0ms | Allocations: 30)
+  Rendered collection of /Users/kengo/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/erd-0.8.1/app/views/erd/erd/_column.html.erb [3 times] (Duration: 0.0ms | Allocations: 68)
+  Rendered collection of /Users/kengo/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/erd-0.8.1/app/views/erd/erd/_column.html.erb [2 times] (Duration: 0.0ms | Allocations: 49)
+  Rendered collection of /Users/kengo/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/erd-0.8.1/app/views/erd/erd/_model.html.erb [3 times] (Duration: 0.4ms | Allocations: 531)
+  Rendered /Users/kengo/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/erd-0.8.1/app/views/erd/erd/erd.html.erb (Duration: 0.6ms | Allocations: 671)
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT version FROM schema_migrations[0m
+  Rendering layout /Users/kengo/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/erd-0.8.1/app/views/layouts/erd/application.html.erb
+  Rendering /Users/kengo/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/erd-0.8.1/app/views/erd/erd/edit.html.erb within layouts/erd/application
+  Rendered /Users/kengo/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/erd-0.8.1/app/views/erd/erd/edit.html.erb within layouts/erd/application (Duration: 1.6ms | Allocations: 2621)
+  Rendered layout /Users/kengo/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/erd-0.8.1/app/views/layouts/erd/application.html.erb (Duration: 1.9ms | Allocations: 3220)
+Completed 200 OK in 106ms (Views: 2.1ms | ActiveRecord: 0.2ms | Allocations: 14376)
+
+
